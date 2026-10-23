@@ -1,0 +1,40 @@
+{
+  "title": "Root-Type-Specific Water Uptake in Maize across Soil Texture and Moisture Gradients",
+  "upload_type": "software",
+  "description": "Code for the article \"Root-Type-Specific Water Uptake in Maize across Soil Texture and Moisture Gradients\" (Adamczewski, Kaestner, Pausch, Holz, Zarebanadkouki). Maize was grown for 45 to 47 days in sandy or loamy soil under well-watered and water-limited conditions. Time-series neutron radiography combined with deuterated water (D2O) labelling, together with a diffusion-convection model, was used to estimate the effective radial water uptake and axial flow of crown and seminal roots. The repository contains the image processing, the nighttime radial diffusion model, the daytime inverse model, the sensitivity analysis to the xylem cross-sectional fraction, and the statistics and figures of the article.",
+  "creators": [
+    {
+      "name": "Adamczewski, Ruth",
+      "affiliation": "Technical University of Munich"
+    },
+    {
+      "name": "Kaestner, Anders",
+      "affiliation": "Paul Scherrer Institute, PSI Center for Neutron and Muon Sciences"
+    },
+    {
+      "name": "Pausch, Johanna",
+      "affiliation": "University of Bayreuth, Bayreuth Center of Ecology and Environmental Research (BayCEER)"
+    },
+    {
+      "name": "Holz, Maire",
+      "affiliation": "Leibniz Centre for Agricultural Landscape Research (ZALF)"
+    },
+    {
+      "name": "Zarebanadkouki, Mohsen",
+      "affiliation": "Technical University of Munich"
+    }
+  ],
+  "license": "mit",
+  "keywords": [
+    "maize",
+    "root water uptake",
+    "crown roots",
+    "seminal roots",
+    "soil texture",
+    "soil moisture",
+    "neutron radiography",
+    "deuterated water",
+    "inverse modelling"
+  ],
+  "access_right": "open"
+}

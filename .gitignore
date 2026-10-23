@@ -1,0 +1,32 @@
+# --- Data stay outside Git (see Data/README.md) ---
+Data/*
+!Data/README.md
+Figures/*
+!Figures/README.md
+*.fits
+*.fit
+*.tif
+*.tiff
+*.xlsx
+*.h5
+*.zip
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.spyproject/
+
+# --- Editors and OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+
+# --- Secrets ---
+.env
+*.key

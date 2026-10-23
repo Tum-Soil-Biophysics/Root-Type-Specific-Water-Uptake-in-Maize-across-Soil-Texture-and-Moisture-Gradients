@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the related article and this software."
+title: "Root-Type-Specific Water Uptake in Maize across Soil Texture and Moisture Gradients"
+type: software
+authors:
+  - family-names: "Adamczewski"
+    given-names: "Ruth"
+    affiliation: "Technical University of Munich"
+  - family-names: "Kaestner"
+    given-names: "Anders"
+    affiliation: "Paul Scherrer Institute, PSI Center for Neutron and Muon Sciences"
+  - family-names: "Pausch"
+    given-names: "Johanna"
+    affiliation: "University of Bayreuth, Bayreuth Center of Ecology and Environmental Research (BayCEER)"
+  - family-names: "Holz"
+    given-names: "Maire"
+    affiliation: "Leibniz Centre for Agricultural Landscape Research (ZALF)"
+  - family-names: "Zarebanadkouki"
+    given-names: "Mohsen"
+    affiliation: "Technical University of Munich"
+repository-code: "https://github.com/Tum-Soil-Biophysics/Root-Type-Specific-Water-Uptake-in-Maize-across-Soil-Texture-and-Moisture-Gradients"
+url: "https://www.lss.ls.tum.de/sbe/"
+license: MIT
+keywords:
+  - neutron radiography
+  - deuterated water
+  - root water uptake
+  - inverse modelling
+  - maize
+  - soil texture
+  - soil moisture
+  - crown roots
+  - seminal roots
+# Add the related article once its DOI is known:
+# preferred-citation:
+#   type: article
+#   authors:
+#     - family-names: "Adamczewski"
+#       given-names: "Ruth"
+#   title: "Root-Type-Specific Water Uptake in Maize across Soil Texture and Moisture Gradients"
+#   journal: "[Journal]"
+#   year: [Year]
+#   doi: "[DOI]"

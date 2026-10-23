@@ -1,0 +1,54 @@
+# Publishes every GitHub release of a PUBLIC repository to Zenodo and adds the DOI to the release notes.
+# - First release: creates a new Zenodo record (new DOI).
+# - Later releases: create a new version of the same record (same concept DOI).
+# - Pre-releases and private repositories are skipped; unticking "pre-release" later triggers it.
+# Needs the organization secret ZENODO_TOKEN. Set the variable ZENODO_SANDBOX=true to test on sandbox.zenodo.org.
+name: Zenodo DOI on release
+
+on:
+  release:
+    types: [released]   # a release was published, or a pre-release was turned into a release
+
+permissions:
+  contents: write
+
+jobs:
+  zenodo:
+    if: ${{ !github.event.release.prerelease && !github.event.repository.private }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the released version
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Pack the source code
+        run: |
+          NAME="${GITHUB_REPOSITORY#*/}"
+          git archive --format=zip --prefix="${NAME}-${TAG}/" -o "${RUNNER_TEMP}/${NAME}-${TAG}.zip" HEAD
+          echo "ARCHIVE=${RUNNER_TEMP}/${NAME}-${TAG}.zip" >> "$GITHUB_ENV"
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+
+      - name: Publish on Zenodo
+        id: zenodo
+        run: |
+          pip install --quiet requests
+          python .github/scripts/zenodo_release.py "$ARCHIVE"
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+          ZENODO_SANDBOX: ${{ vars.ZENODO_SANDBOX }}
+          TAG: ${{ github.event.release.tag_name }}
+          RELEASE_BODY: ${{ github.event.release.body }}
+
+      - name: Add the DOI to the release notes
+        run: |
+          gh release view "$TAG" --json body -q .body > "${RUNNER_TEMP}/notes.md"
+          printf '\n\n---\n**DOI (this version):** https://doi.org/%s\n**DOI (all versions, always the latest):** https://doi.org/%s\n' \
+            "$DOI" "$CONCEPT_DOI" >> "${RUNNER_TEMP}/notes.md"
+          gh release edit "$TAG" --notes-file "${RUNNER_TEMP}/notes.md"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+          DOI: ${{ steps.zenodo.outputs.doi }}
+          CONCEPT_DOI: ${{ steps.zenodo.outputs.concept_doi }}

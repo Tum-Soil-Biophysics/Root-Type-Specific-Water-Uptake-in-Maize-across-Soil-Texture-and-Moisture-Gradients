@@ -1,0 +1,15 @@
+# Python >= 3.11
+numpy>=1.26
+pandas>=2.1
+scipy>=1.11
+matplotlib>=3.8
+scikit-learn>=1.3
+scikit-image>=0.22
+statsmodels>=0.14
+openpyxl>=3.1
+seaborn>=0.13
+opencv-python>=4.8
+tifffile>=2023.7
+astropy>=5.3
+# Optional, only for the R cross-check in DayTime_Stats_lmem.py:
+# rpy2, pymer4, polars
