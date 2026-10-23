@@ -78,6 +78,7 @@ while previous is None:
 # ---- create the draft -----------------------------------------------------
 if previous:
     print(f"Earlier version found (record {previous['id']}); creating a new version.")
+    meta.pop("communities", None)  # new versions inherit the communities of the first version
     nv = call("POST", f"{BASE}/deposit/depositions/{previous['id']}/actions/newversion")
     draft = call("GET", nv["links"]["latest_draft"])
     for f in draft.get("files", []):
