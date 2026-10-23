@@ -36,5 +36,10 @@
     "deuterated water",
     "inverse modelling"
   ],
-  "access_right": "open"
+  "access_right": "open",
+  "communities": [
+    {
+      "identifier": "tum-sbe"
+    }
+  ]
 }
